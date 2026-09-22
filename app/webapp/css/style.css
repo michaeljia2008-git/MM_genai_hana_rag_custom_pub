@@ -85,6 +85,10 @@
     color: #bfbfbf;
 }
 
+.chatMessageAssistant .sapUiIcon {
+    color: #5851D8;
+}
+
 .messageText {
     white-space: pre-wrap;
     word-break: break-word;
