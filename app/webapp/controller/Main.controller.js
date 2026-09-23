@@ -166,6 +166,23 @@ sap.ui.define([
             });
         },
 
+        onDeleteSession: function () {
+            var that = this;
+            MessageBox.confirm("确定要删除当前对话记录吗？", {
+                title: "删除对话",
+                onClose: function (oAction) {
+                    if (oAction === MessageBox.Action.OK) {
+                        var oAppModel = that.getOwnerComponent().getModel("app");
+                        var sDocId = oAppModel.getProperty("/selectedDocumentId");
+                        that._oMessagesModel.setData([]);
+                        oAppModel.setProperty("/currentSessionId", null);
+                        that._createSessionForDocument(sDocId);
+                        MessageToast.show("对话已删除，新对话已开始");
+                    }
+                }
+            });
+        },
+
         onDeleteDocument: function () {
             var oAppModel = this.getOwnerComponent().getModel("app");
             var sDocumentId = oAppModel.getProperty("/selectedDocumentId");

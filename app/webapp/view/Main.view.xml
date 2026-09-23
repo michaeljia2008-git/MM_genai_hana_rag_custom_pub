@@ -80,6 +80,7 @@
                                 <core:Icon src="sap-icon://document"/>
                                 <Title text="{app>/selectedDocumentName}" level="H5"/>
                                 <ToolbarSpacer/>
+                                <Button text="删除对话" icon="sap-icon://discussion" press=".onDeleteSession" type="Transparent"/>
                                 <Button icon="sap-icon://delete" tooltip="Delete Document" press=".onDeleteDocument" type="Reject"/>
                                 <Button icon="sap-icon://decline" tooltip="Close Chat" press=".onCloseChat" type="Transparent"/>
                             </Toolbar>
