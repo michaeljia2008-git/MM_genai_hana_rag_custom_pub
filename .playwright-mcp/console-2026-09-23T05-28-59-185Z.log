@@ -1,0 +1,68 @@
+[     101ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[     108ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[     108ms] [ERROR] 2026-09-23 13:28:59.292800 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  101742ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  101747ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  101748ms] [ERROR] 2026-09-23 13:30:40.932500 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  103515ms] [ERROR] 2026-09-23 13:30:42.700200 failed to load JavaScript resource: sap/ui/layout/layoutData.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  103516ms] [ERROR] 2026-09-23 13:30:42.700600 The following error occurred while displaying routing target with name 'main': ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error -   @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  103517ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  103517ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  108960ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  108964ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  108964ms] [ERROR] 2026-09-23 13:30:48.149500 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  109425ms] [ERROR] 2026-09-23 13:30:48.609800 failed to load JavaScript resource: sap/ui/layout/layoutData.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  109425ms] [ERROR] 2026-09-23 13:30:48.610000 The following error occurred while displaying routing target with name 'main': ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error -   @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  109425ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  109426ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  114002ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  114007ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  114007ms] [ERROR] 2026-09-23 13:30:53.192399 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  114793ms] [ERROR] 2026-09-23 13:30:53.978399 failed to load JavaScript resource: sap/ui/layout/layoutData.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  114794ms] [ERROR] 2026-09-23 13:30:53.978699 The following error occurred while displaying routing target with name 'main': ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error -   @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  114794ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  114794ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  169591ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  169597ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  169598ms] [ERROR] 2026-09-23 13:31:48.782300 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  170882ms] [ERROR] 2026-09-23 13:31:50.067000 failed to load JavaScript resource: sap/ui/layout/layoutData.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  170882ms] [ERROR] 2026-09-23 13:31:50.067300 The following error occurred while displaying routing target with name 'main': ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error -   @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  170883ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  170883ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  173615ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  173621ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  173621ms] [ERROR] 2026-09-23 13:31:52.805800 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  174091ms] [ERROR] 2026-09-23 13:31:53.276399 failed to load JavaScript resource: sap/ui/layout/layoutData.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  174092ms] [ERROR] 2026-09-23 13:31:53.276599 The following error occurred while displaying routing target with name 'main': ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error -   @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  174092ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)
+[  174092ms] Uncaught (in promise) ModuleError: failed to load 'sap/ui/layout/layoutData.js' from https://sapui5.hana.ondemand.com/resources/sap/ui/layout/layoutData.js: script load error
+    at xe (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:7103)
+    at failWith (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:4891)
+    at i (https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:9:10950)

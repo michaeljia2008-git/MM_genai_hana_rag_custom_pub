@@ -1,0 +1,14 @@
+[    1161ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/favicon.ico:0
+[    1596ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[    1601ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[    1602ms] [ERROR] 2026-09-23 09:33:06.037800 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[   67369ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[   67375ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[   67375ms] [ERROR] 2026-09-23 09:34:11.811000 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  131713ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  131721ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  131721ms] [ERROR] 2026-09-23 09:35:16.157000 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
+[  151320ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/favicon.ico:0
+[  151658ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  151662ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2142/Component-preload.js:0
+[  151663ms] [ERROR] 2026-09-23 09:35:36.098600 failed to load JavaScript resource: genai/rag/app/Component-preload.js -  sap.ui.ModuleSystem @ https://sapui5.hana.ondemand.com/resources/sap-ui-core.js:46
