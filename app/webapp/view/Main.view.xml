@@ -8,7 +8,7 @@
 
     <Page title="RAG Chat Assistant" showHeader="true" class="mainPage">
         <content>
-            <l:Splitter orientation="Horizontal" height="100%">
+            <l:Splitter id="mainSplitter" orientation="Horizontal" height="100%">
                 <!-- Left Panel: Documents -->
                 <l:contentAreas>
                     <VBox width="350px" class="documentsPanel">

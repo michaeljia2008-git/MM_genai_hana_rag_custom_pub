@@ -59,6 +59,9 @@
     background-color: #fafafa;
     height: 100%;
     overflow-y: auto;
+    min-width: 350px;
+    max-width: 350px;
+    flex-shrink: 0;
 }
 
 .documentsList {
