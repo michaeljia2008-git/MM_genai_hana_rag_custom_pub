@@ -406,12 +406,38 @@ sap.ui.define([
         },
 
         _scrollToBottom: function () {
-            var oScroll = this.byId("chatScroll");
-            if (oScroll) {
-                setTimeout(function () {
-                    oScroll.scrollTo(0, 99999);
-                }, 100);
-            }
+            var that = this;
+            setTimeout(function () {
+                that._applyMessageClasses();
+                // Scroll SAP UI5 ScrollContainer
+                var oScroll = that.byId("chatScroll");
+                if (oScroll) {
+                    oScroll.scrollTo(0, oScroll.getDomRef()?.scrollHeight || 99999);
+                }
+                // Scroll middle splitter container
+                document.querySelectorAll(".sapUiLoSplitterContent, .chatPanel, .chatPanel > div").forEach(function (el) {
+                    el.scrollTop = el.scrollHeight;
+                });
+            }, 400);
+        },
+
+        _applyMessageClasses: function () {
+            var oList = this.byId("messageList");
+            if (!oList) return;
+            var aItems = oList.getItems();
+            var aMessages = this._oMessagesModel.getData() || [];
+            aItems.forEach(function (oItem, i) {
+                var sRole = aMessages[i] && aMessages[i].role;
+                var oDom = oItem.getDomRef();
+                if (!oDom) return;
+                if (sRole === "user") {
+                    oDom.classList.add("chatMessageUser");
+                    oDom.classList.remove("chatMessageAssistant");
+                } else {
+                    oDom.classList.add("chatMessageAssistant");
+                    oDom.classList.remove("chatMessageUser");
+                }
+            });
         }
     });
 });

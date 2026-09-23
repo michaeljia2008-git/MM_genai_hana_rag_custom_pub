@@ -34,21 +34,26 @@
                             items="{messages>/}"
                             showNoData="false"
                             showSeparators="None">
-                            <CustomListItem type="Inactive">
-                                <VBox class="{= ${messages>role} === 'user' ? 'chatMessageUser' : 'chatMessageAssistant'}">
-                                    <HBox alignItems="Center">
+                            <CustomListItem type="Inactive" visible="{= ${messages>role} === 'user'}">
+                                <VBox class="chatMessageUser">
+                                    <HBox alignItems="Center" class="messageHeaderUser">
+                                        <Label text="You" design="Bold"/>
                                         <core:Icon
                                             src="sap-icon://person-placeholder"
-                                            class="sapUiSmallMarginEnd"
-                                            size="1rem"
-                                            visible="{= ${messages>role} === 'user'}"/>
+                                            class="sapUiSmallMarginBegin"
+                                            size="1rem"/>
+                                    </HBox>
+                                    <Text text="{messages>content}" class="sapUiSmallMarginTop messageContent"/>
+                                </VBox>
+                            </CustomListItem>
+                            <CustomListItem type="Inactive" visible="{= ${messages>role} !== 'user'}">
+                                <VBox class="chatMessageAssistant">
+                                    <HBox alignItems="Center">
                                         <core:Icon
                                             src="sap-icon://da"
                                             class="sapUiSmallMarginEnd"
-                                            size="1rem"
-                                            color="#5851D8"
-                                            visible="{= ${messages>role} !== 'user'}"/>
-                                        <Label text="{= ${messages>role} === 'user' ? 'You' : 'Assistant'}" design="Bold"/>
+                                            size="1rem"/>
+                                        <Label text="Assistant" design="Bold"/>
                                     </HBox>
                                     <Text text="{messages>content}" class="sapUiSmallMarginTop messageContent"/>
                                 </VBox>

@@ -27,14 +27,14 @@
 }
 
 .chatMessageUser {
-    background-color: #0a6ed1;
-    color: #ffffff;
+    background-color: #e8f4fd;
+    color: #000000;
     align-self: flex-end;
     margin-left: auto;
 }
 
 .chatMessageUser .sapMLabel {
-    color: #ffffff;
+    color: #000000;
 }
 
 .chatMessageAssistant {
@@ -94,9 +94,14 @@
     color: #5851D8 !important;
 }
 
-.messageText {
-    white-space: pre-wrap;
-    word-break: break-word;
+/* User message - blue background, align header right */
+.chatMessageUser .sapMHBox {
+    justify-content: flex-end !important;
+}
+
+/* User message label white */
+.chatMessageUser .sapMLabel {
+    color: #000000;
 }
 
 /* Error documents show status in list only, not selectable */
