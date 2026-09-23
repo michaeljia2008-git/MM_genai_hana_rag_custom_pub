@@ -1,1 +1,4 @@
 .DS_Store
+app/webapp/config.js
+user-config.json
+my-deployment.mtaext
