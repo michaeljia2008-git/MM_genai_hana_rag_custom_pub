@@ -46,6 +46,19 @@ cds.on('bootstrap', (app) => {
       res.status(500).json({ error: error.message });
     }
   });
+  app.post('/api/chat/deleteSession', async (req, res) => {
+    try {
+      const { sessionId } = req.body;
+      if (!sessionId) return res.status(400).json({ error: 'sessionId is required' });
+      const { ChatSessions, ChatMessages } = cds.entities('genai.rag');
+      await DELETE.from(ChatMessages).where({ session_ID: sessionId });
+      await DELETE.from(ChatSessions).where({ ID: sessionId });
+      res.json({ success: true });
+    } catch (error) {
+      console.error('Delete session error:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
 });
 
 module.exports = cds.server;
