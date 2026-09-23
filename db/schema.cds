@@ -17,6 +17,7 @@ entity DocumentChunks {
     content        : LargeString;
     chunkIndex     : Integer;
     tokenCount     : Integer;
+    embedding      : Vector(3072);
 }
 
 entity ChatSessions {
