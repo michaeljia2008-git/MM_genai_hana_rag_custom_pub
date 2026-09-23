@@ -32,6 +32,22 @@ sap.ui.define([
             oAppModel.setProperty("/sortDescending", true); // Newest first by default
 
             this._loadDocuments();
+
+            // Set splitter position to match documents panel width
+            var that = this;
+            setTimeout(function () {
+                var oSplitter = that.byId("mainSplitter");
+                if (oSplitter) {
+                    var aAreas = oSplitter.getContentAreas();
+                    if (aAreas.length > 0) {
+                        var oLD = aAreas[0].getLayoutData();
+                        if (oLD) {
+                            oLD.setSize("350px");
+                            oSplitter.triggerResize(true);
+                        }
+                    }
+                }
+            }, 500);
         },
 
         // ==================== Document Methods ====================
