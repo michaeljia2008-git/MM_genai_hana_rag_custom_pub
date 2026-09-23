@@ -85,8 +85,13 @@
     color: #bfbfbf;
 }
 
-.chatMessageAssistant .sapUiIcon {
-    color: #5851D8;
+.chatMessageAssistant .sapUiIcon,
+.chatMessageAssistant span[role="presentation"] {
+    color: #5851D8 !important;
+}
+
+[aria-label="da-2"] {
+    color: #5851D8 !important;
 }
 
 .messageText {

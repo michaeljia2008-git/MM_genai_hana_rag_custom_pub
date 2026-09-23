@@ -38,9 +38,16 @@
                                 <VBox class="{= ${messages>role} === 'user' ? 'chatMessageUser' : 'chatMessageAssistant'}">
                                     <HBox alignItems="Center">
                                         <core:Icon
-                                            src="{= ${messages>role} === 'user' ? 'sap-icon://person-placeholder' : 'sap-icon://da'}"
+                                            src="sap-icon://person-placeholder"
                                             class="sapUiSmallMarginEnd"
-                                            size="1rem"/>
+                                            size="1rem"
+                                            visible="{= ${messages>role} === 'user'}"/>
+                                        <core:Icon
+                                            src="sap-icon://da"
+                                            class="sapUiSmallMarginEnd"
+                                            size="1rem"
+                                            color="#5851D8"
+                                            visible="{= ${messages>role} !== 'user'}"/>
                                         <Label text="{= ${messages>role} === 'user' ? 'You' : 'Assistant'}" design="Bold"/>
                                     </HBox>
                                     <Text text="{messages>content}" class="sapUiSmallMarginTop messageContent"/>
