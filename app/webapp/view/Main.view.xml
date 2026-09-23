@@ -96,10 +96,16 @@
                                             <VBox class="messageContent">
                                                 <HBox alignItems="Center" class="sapUiTinyMarginBottom">
                                                     <core:Icon
-                                                        src="{= ${messages>role} === 'user' ? 'sap-icon://person-placeholder' : 'sap-icon://da-2'}"
+                                                        src="sap-icon://da-2"
                                                         size="1rem"
-                                                        class="sapUiTinyMarginEnd"/>
+                                                        class="sapUiTinyMarginEnd"
+                                                        visible="{= ${messages>role} !== 'user'}"/>
                                                     <Label text="{= ${messages>role} === 'user' ? 'You' : 'Assistant'}" design="Bold"/>
+                                                    <core:Icon
+                                                        src="sap-icon://person-placeholder"
+                                                        size="1rem"
+                                                        class="sapUiTinyMarginBegin"
+                                                        visible="{= ${messages>role} === 'user'}"/>
                                                 </HBox>
                                                 <Text text="{messages>content}" class="messageText"/>
                                             </VBox>
