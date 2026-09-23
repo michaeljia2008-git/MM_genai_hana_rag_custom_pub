@@ -27,6 +27,17 @@ service ChatService @(path: '/api/chat') {
         };
     };
 
-    function getSessionMessages(sessionId: UUID) returns array of db.ChatMessages;
-    function getDocumentSessions(documentId: UUID) returns array of db.ChatSessions;
+    function getSessionMessages(sessionId: UUID) returns array of {
+        ID        : UUID;
+        role      : String;
+        content   : LargeString;
+        sources   : LargeString;
+        timestamp : Timestamp;
+    };
+    function getDocumentSessions(documentId: UUID) returns array of {
+        ID          : UUID;
+        document_ID : UUID;
+        title       : String;
+        createdAt   : Timestamp;
+    };
 }
