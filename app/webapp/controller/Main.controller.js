@@ -173,11 +173,24 @@ sap.ui.define([
                 onClose: function (oAction) {
                     if (oAction === MessageBox.Action.OK) {
                         var oAppModel = that.getOwnerComponent().getModel("app");
+                        var sSessionId = oAppModel.getProperty("/currentSessionId");
                         var sDocId = oAppModel.getProperty("/selectedDocumentId");
-                        that._oMessagesModel.setData([]);
-                        oAppModel.setProperty("/currentSessionId", null);
-                        that._createSessionForDocument(sDocId);
-                        MessageToast.show("对话已删除，新对话已开始");
+
+                        fetch(that._apiBase + "/api/chat/deleteSession", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ sessionId: sSessionId })
+                        })
+                        .then(function (r) { return r.json(); })
+                        .then(function () {
+                            that._oMessagesModel.setData([]);
+                            oAppModel.setProperty("/currentSessionId", null);
+                            that._createSessionForDocument(sDocId);
+                            MessageToast.show("对话已删除，新对话已开始");
+                        })
+                        .catch(function (err) {
+                            MessageBox.error("删除失败: " + err.message);
+                        });
                     }
                 }
             });
