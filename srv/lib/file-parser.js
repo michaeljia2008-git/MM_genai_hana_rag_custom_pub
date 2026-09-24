@@ -31,12 +31,14 @@ function parseCSV(buffer) {
     trim: true
   });
 
-  return records.map((row, index) => {
+  return records.map((row) => {
+    const idField = Object.keys(row).find(k => /id$/i.test(k));
+    const idValue = idField ? row[idField] : '';
     const pairs = Object.entries(row)
       .map(([key, value]) => `${key}: ${value}`)
       .join(', ');
-    return `Row ${index + 1}: ${pairs}`;
-  }).join('\n');
+    return `Product ${idValue} information: ${pairs}`;
+  }).join('\n\n');
 }
 
 module.exports = { parseFile };
