@@ -1,6 +1,6 @@
 const cds = require('@sap/cds');
 
-async function searchSimilarChunks(queryEmbedding, topK = 10, documentIds = null) {
+async function searchSimilarChunks(queryEmbedding, topK = 20, documentIds = null) {
   const embeddingStr = JSON.stringify(queryEmbedding);
 
   let sql = `
