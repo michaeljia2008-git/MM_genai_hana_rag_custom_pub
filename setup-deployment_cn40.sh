@@ -48,7 +48,7 @@ SRV_APP="genai-hana-rag-srv"
 # ── AI Core credentials (eu10, shared) ───────────────────────────────────────
 # No AI Core service exists in this space.
 # Credentials are injected via AICORE_SERVICE_KEY environment variable.
-AICORE_SERVICE_KEY='{"clientid":"sb-1b884034-65ff-4e7f-9eb5-3a75a12a45ec!b598040|aicore!b540","clientsecret":"843a6dc8-4915-4d1c-90fd-16de150d15cf$4SKg2Y7UPxMvoDqEMt-x_Z0jDju4e59oy8po8mSjb94=","url":"https://sap-core-ai-chatbot-eu10-eqvsquev.authentication.eu10.hana.ondemand.com","serviceurls":{"AI_API_URL":"https://api.ai.prod.eu-central-1.aws.ml.hana.oncloud.cn"}}'
+AICORE_SERVICE_KEY='{"clientid":"sb-1b884034-65ff-4e7f-9eb5-3a75a12a45ec!b598040|aicore!b540","clientsecret":"843a6dc8-4915-4d1c-90fd-16de150d15cf$4SKg2Y7UPxMvoDqEMt-x_Z0jDju4e59oy8po8mSjb94=","url":"https://sap-core-ai-chatbot-eu10-eqvsquev.authentication.eu10.hana.ondemand.com","serviceurls":{"AI_API_URL":"https://api.ai.prod.eu-central-1.aws.ml.hana.ondemand.com"}}'
 # ─────────────────────────────────────────────────────────────────────────────
 
 print_header() {
@@ -119,6 +119,8 @@ build_app() {
 }
 
 deploy_app() {
+    echo -e "${BLUE}Switching to CN40 org/space...${NC}"
+    cf target -o "$CF_ORG" -s "$CF_SPACE"
     echo -e "${BLUE}Deploying to CN40...${NC}"
     cf deploy "$MTAR_FILE" -e "$MTAEXT_OUTPUT"
     echo -e "${GREEN}Deployment complete${NC}"
