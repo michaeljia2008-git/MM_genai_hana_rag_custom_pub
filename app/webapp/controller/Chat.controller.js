@@ -9,7 +9,7 @@ sap.ui.define([
 
         onInit: function () {
             this._apiBase = (window.RAG_CONFIG && window.RAG_CONFIG.apiBaseUrl) ||
-                "https://trial---shared-sap-core-ai-chatbot-eu10-chatbot-dev-gen6bd87a39.cfapps.eu10-004.hana.ondemand.com";
+                "https://poc-env-hc96-genai-hana-rag-srv.innolab.oncloud.top";
             this._oMessagesModel = new JSONModel([]);
             this.getView().setModel(this._oMessagesModel, "messages");
 
