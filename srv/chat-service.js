@@ -107,7 +107,7 @@ module.exports = class ChatService extends cds.ApplicationService {
       const [queryEmbedding] = await embedTexts([message]);
 
       // Retrieve relevant chunks - filtered by session's document
-      const relevantChunks = await searchSimilarChunks(queryEmbedding, 10, [session.document_ID]);
+      const relevantChunks = await searchSimilarChunks(queryEmbedding, 20, [session.document_ID]);
 
       // Get chat history for context
       const history = await SELECT.from(ChatMessages)
