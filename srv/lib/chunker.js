@@ -8,7 +8,6 @@ function chunkText(text, options = {}) {
   }
 
   // 如果文本包含双换行（CSV行分隔），按行分块，不合并
-  console.log('[chunker] text length:', text.length, 'has double newline:', text.includes('\n\n'), 'first 100 chars:', JSON.stringify(text.substring(0, 100)));
   if (text.includes('\n\n')) {
     const lines = text.split('\n\n').map(l => l.trim()).filter(l => l.length > 0);
     // 每行独立成一个 chunk
