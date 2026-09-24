@@ -551,4 +551,136 @@ node_modules/
 
 ---
 
+---
+
+## 十一、多环境部署差异（eu10 vs cn40）
+
+### 环境对比
+
+| 项目 | eu10 | cn40 |
+|------|------|------|
+| CF API | `api.cf.eu10-004.hana.ondemand.com` | `api.cf.cn40.platform.sapcloud.cn` |
+| 应用域名 | `cfapps.eu10-004.hana.ondemand.com` | `innolab.oncloud.top`（自定义域名） |
+| AI Core 服务 | space 内有 AI Core 服务实例 | 无 AI Core 服务，用环境变量代替 |
+| AI_API_URL | `api.ai.prod.eu-central-1.aws.ml.hana.ondemand.com` | 同上（eu10 的 AI Core 跨区调用） |
+
+### cn40 特殊处理：无 AI Core 服务绑定
+
+cn40 的 space 里没有 AI Core 服务实例，SDK 会报：
+```
+Could not find service binding of type 'aicore'
+```
+
+解决方案：用 `AICORE_SERVICE_KEY` 环境变量注入凭证：
+
+```bash
+cf set-env genai-hana-rag-srv AICORE_SERVICE_KEY '{"clientid":"...","clientsecret":"...","url":"...","serviceurls":{"AI_API_URL":"..."}}'
+cf restart genai-hana-rag-srv
+```
+
+同时在 `my-deployment.mtaext` 里禁用 aicore 资源：
+```yaml
+resources:
+  - name: aicore
+    active: false
+```
+
+### config.js 被 .gitignore 忽略的问题
+
+`app/webapp/config.js` 被 `.gitignore` 忽略，换环境部署后需要手动更新：
+
+```bash
+cat > app/webapp/config.js << 'EOF'
+window.RAG_CONFIG = {
+    apiBaseUrl: "https://<新环境的srv地址>"
+};
+EOF
+```
+
+### CSV 分块逻辑
+
+CSV 文件每行应该独立成一个 chunk，不应被合并。关键逻辑：
+
+- `file-parser.js`：每行格式化为 `Product {ID} information: key: value, ...`，行间用 `\n\n` 分隔
+- `chunker.js`：检测到 `\n\n` 时按行分块，不走普通的 maxTokens 切分逻辑
+
+```javascript
+// chunker.js - CSV 专用分块
+if (text.includes('\n\n')) {
+  const lines = text.split('\n\n').map(l => l.trim()).filter(l => l.length > 0);
+  return lines.map(line => ({
+    content: line,
+    tokenCount: Math.ceil(line.length / CHARS_PER_TOKEN)
+  }));
+}
+```
+
+### topK 查询参数
+
+向量搜索返回的 chunks 数量：
+- `vector-search.js` 默认值：`topK = 20`
+- `chat-service.js` 调用时显式传入：`searchSimilarChunks(queryEmbedding, 20, [...])`
+
+两处需要保持一致。
+
+---
+
+## 十二、cn40 部署脚本（setup-deployment_cn40.sh）
+
+针对 cn40 环境的一键部署脚本，固化了所有环境参数。
+
+### 使用方式
+
+```bash
+# 仅生成配置文件（mtaext + config.js），不执行部署
+chmod +x setup-deployment_cn40.sh
+./setup-deployment_cn40.sh
+
+# 完整部署（生成配置 + mbt build + cf deploy + 设置 AICORE_SERVICE_KEY）
+./setup-deployment_cn40.sh --deploy
+```
+
+### 典型部署流程（推荐）
+
+```bash
+git pull
+./setup-deployment_cn40.sh           # 生成 mtaext 和 config.js
+mbt build
+cf deploy mta_archives/genai-hana-rag_1.0.0.mtar -e my-deployment.mtaext
+# AICORE_SERVICE_KEY 已存在则无需重新设置
+```
+
+### 数据库错误文档清理
+
+部署后如有 ERROR 状态的文档残留，用以下命令清理：
+
+```bash
+# 查询 ERROR 文档
+cf run-task genai-hana-rag-srv --command "node -e \"
+const cds = require('@sap/cds');
+cds.connect().then(async () => {
+  const docs = await cds.run('SELECT ID, FILENAME, STATUS FROM GENAI_RAG_DOCUMENTS WHERE STATUS = \\'ERROR\\'');
+  console.log(JSON.stringify(docs));
+  process.exit(0);
+});
+\"" --name list-error-docs
+
+# 查看结果
+cf logs genai-hana-rag-srv --recent | grep "APP/TASK"
+
+# 删除指定文档（替换 <DOC_ID>）
+cf run-task genai-hana-rag-srv --command "node -e \"
+const cds = require('@sap/cds');
+cds.connect().then(async () => {
+  const docId = '<DOC_ID>';
+  await cds.run('DELETE FROM GENAI_RAG_DOCUMENTCHUNKS WHERE DOCUMENT_ID = ?', [docId]);
+  await cds.run('DELETE FROM GENAI_RAG_DOCUMENTS WHERE ID = ?', [docId]);
+  console.log('Deleted successfully');
+  process.exit(0);
+});
+\"" --name delete-error-doc
+```
+
+---
+
 *基于 genai_hana_rag 项目实践整理 — 2026/09*
