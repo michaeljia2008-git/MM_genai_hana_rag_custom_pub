@@ -2,13 +2,24 @@ const CHARS_PER_TOKEN = 4;
 
 function chunkText(text, options = {}) {
   const { maxTokens = 1000, overlapTokens = 200 } = options;
-  const maxChars = maxTokens * CHARS_PER_TOKEN;
-  const overlapChars = overlapTokens * CHARS_PER_TOKEN;
 
   if (!text || text.trim().length === 0) {
     return [];
   }
 
+  // 如果文本包含双换行（CSV行分隔），按行分块，不合并
+  if (text.includes('\n\n')) {
+    const lines = text.split('\n\n').map(l => l.trim()).filter(l => l.length > 0);
+    // 每行独立成一个 chunk
+    return lines.map(line => ({
+      content: line,
+      tokenCount: Math.ceil(line.length / CHARS_PER_TOKEN)
+    }));
+  }
+
+  // 原有逻辑保持不变（用于 PDF/TXT）
+  const maxChars = maxTokens * CHARS_PER_TOKEN;
+  const overlapChars = overlapTokens * CHARS_PER_TOKEN;
   const cleanedText = text.replace(/\s+/g, ' ').trim();
   const chunks = [];
   let startIndex = 0;
@@ -40,12 +51,7 @@ function chunkText(text, options = {}) {
     }
 
     const nextStart = endIndex - overlapChars;
-    if (nextStart <= startIndex) {
-      startIndex = endIndex;
-    } else {
-      startIndex = nextStart;
-    }
-
+    startIndex = nextStart <= startIndex ? endIndex : nextStart;
     if (endIndex >= cleanedText.length) break;
   }
 
